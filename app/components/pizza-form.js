@@ -5,7 +5,9 @@ import { throwErr, validateInputs } from '../utils/utils';
 
 export default Component.extend({
     populateArr() {
-        this.get('ingredients').addObjects(this.pizza.ingredients);
+        if(this.pizza.ingredients !== undefined) {
+            this.get('ingredients').addObjects(this.pizza.ingredients);
+        }
     },
     init() {
         this._super(...arguments);
