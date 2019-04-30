@@ -2,7 +2,7 @@
 
 This simple app will allow you to keep track of your pizzerias and the pizzas that they serve. Do note that the app is currently only available in Polish. 
 
-If you would like to run it anyway, you will have to install it as per the instructions below. To run it, however, you will need to apply for a free API key at mapbox (https://docs.mapbox.com/help/how-mapbox-works/access-tokens/) and then enter the command "LEAFLET_MAPS_API_KEY=<your key> ember s" to fire it up. 
+If you would like to run it anyway, you will have to install it as per the instructions below. To run it, however, you will need to apply for a free API key at mapbox (https://docs.mapbox.com/help/how-mapbox-works/access-tokens/) and then enter the command "LEAFLET_MAPS_API_KEY={your key} ember s" to fire it up. 
   
 Or you may just check out the live version at: https://pizzeria-manager-app.firebaseapp.com/
 
