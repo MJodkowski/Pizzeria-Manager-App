@@ -1,11 +1,25 @@
 'use strict';
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   let ENV = {
     modulePrefix: 'pizzeria-manager-app',
     environment,
     rootURL: '/',
     locationType: 'auto',
+    LEAFLET_MAPS_API_KEY: 'pk.eyJ1IjoiemVuZWRvbiIsImEiOiJjanV1YWpiejQwNDJkNGVuY3VoNXh0dGphIn0._-lY365bwHNWdvhZagNAmw',
+    firebase: {
+      apiKey: "AIzaSyCmnyM5TxlIddUWoaiJHl0h4EMNgedst-c",
+      authDomain: "pizzeria-manager-app.firebaseapp.com",
+      databaseURL: "https://pizzeria-manager-app.firebaseio.com",
+      projectId: "pizzeria-manager-app",
+      storageBucket: "pizzeria-manager-app.appspot.com",
+      messagingSenderId: "767072087148"
+    },
+    contentSecurityPolicy: {
+      'script-src': "'self' 'unsafe-eval' apis.google.com",
+      'frame-src': "'self' https://*.firebaseapp.com",
+      'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

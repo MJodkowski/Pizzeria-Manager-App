@@ -1,0 +1,24 @@
+{{#if pizzeria.name}}
+<h3 class="card-header">{{pizzeria.name}}</h3>
+<ul>
+    <li class="card-list-item">Adres: {{pizzeria.address}}</li>
+    <li class="card-list-item">Otwarta od: {{pizzeria.hoursFrom}} do {{pizzeria.hoursTo}}</li>
+</ul>
+{{#if this.isExpanded}}
+{{#if pizzeria.menu.[0].name}}
+<h4 class="menu-header">Menu</h4>
+<ul>
+    {{#each pizzeria.menu as |menuItem|}}
+    <div class="card-list-item">
+        <li>{{menuItem.name}}</li>
+        <ul>
+            <li>Składniki: {{menuItem.ingredients}}</li>
+            <li>Cena: {{menuItem.price}}</li>
+        </ul>
+    </div>
+    {{/each}}
+</ul>
+{{/if}}
+{{#link-to 'pizzerias.edit' pizzeria.id class="button"}}Edit{{/link-to}}
+{{/if}}
+{{/if}}

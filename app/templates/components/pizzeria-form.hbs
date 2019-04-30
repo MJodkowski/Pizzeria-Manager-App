@@ -1,0 +1,45 @@
+<section class="section">
+    <h2 class="section-header">{{header}}</h2>
+    <form>
+        <div class="form-block">
+            <label for="name">Nazwa:</label>
+            {{input class="input" type="text" id="name" name="name" required="true" value=model.pizzeria.name}}
+        </div>
+        <fieldset>
+            <legend>Address:</legend>
+            <div class="form-block">
+                <label for="city">Miasto:</label>
+                {{input id="city" name="city" required="true" value=model.pizzeria.city}}
+            </div>
+            <div class="form-block">
+                <label for="street">Ulica:</label>
+                {{input id="street" name="street" required="true" value=model.pizzeria.street}}
+            </div>
+            <div class="form-block">
+                <label for="number">Numer:</label>
+                {{input id="number" name="number" type="number" required="true" value=model.pizzeria.number}}
+            </div>
+        </fieldset>
+        <div class="form-block">
+            <label for="hours-from">Otwarte od:</label>
+            {{input type="time" id="hours-from" name="hours-from" required="true" value=model.pizzeria.hoursFrom}}
+            <label for="hours-to">do:</label>
+            {{input type="time" id="hours-to" name="hours-to" required="true" value=model.pizzeria.hoursTo}}
+        </div>
+        <div class="form-block">
+            <fieldset>
+                <legend>Menu:</legend>
+                    {{#each checkedPizzas as |pizza|}}
+                        <label for={{pizza.name}}>{{pizza.name}}</label>
+                        {{input type="checkbox" name=pizza.name checked=pizza.isChecked}}
+                    {{/each}}
+            </fieldset>
+        </div>
+        <input class="button" type="submit" value={{submit}} {{action "savePizzeria" model.pizzeria preventDefault=true}}>
+    </form>
+    <div class="error">
+        {{#each errMessage as |err|}}
+            <p>{{err}}</p>
+        {{/each}}
+    </div>
+</section>

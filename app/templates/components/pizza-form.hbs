@@ -1,0 +1,29 @@
+<section class="section">
+    <h2 class="section-header">{{header}}</h2>
+    <form>
+        <div class="form-block">
+            <label for="name">Nazwa:</label>
+            {{input class="input" type="text" id="name" name="name" required="true" value=pizza.name}}
+        </div>
+        <div class="form-block">
+            <label class="form-label" for="ingredients">Składniki:</label>
+            {{input class="input" type="text" id="ingredients" name="ingredients" value=ingredient}}
+            <ul>
+                {{#each ingredients as |ing|}}
+                <li>{{ing}}<button class="delete-button" {{action "removeIngredient" ing preventDefault=true}}>X</button></li>
+                {{/each}}
+            </ul>
+            <button class="button" {{action "addIngredient" preventDefault=true}}>Dodaj składnik</button>
+        </div>
+        <div class="form-block">
+            <label for="price">Cena:</label>
+            {{input class="input" type="number" id="price" name="price" value=pizza.price}}
+        </div>
+        <input class="button" type="submit" value={{submit}} {{action "savePizza" pizza preventDefault=true}}>
+    </form>
+    <div class="error">
+        {{#each errMessage as |err|}}
+            <p>{{err}}</p>
+        {{/each}}
+    </div>
+</section>

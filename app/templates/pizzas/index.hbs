@@ -1,0 +1,15 @@
+<h2 class="section-header">Pizze</h2>
+
+<section class="section">
+    {{#link-to "pizzas.add" class="button"}}Dodaj pizzę{{/link-to}}
+    <div class="card-list">
+        {{#each this.model as |pizza|}}
+            <div class="card">
+                {{#link-to "pizzas.edit" pizza.id }}
+                    <Pizza-Display @pizza={{pizza}} />
+                {{/link-to}}
+                <Delete-Button @record={{pizzeria}}/>
+            </div>
+        {{/each}}
+    </div>
+</section>
