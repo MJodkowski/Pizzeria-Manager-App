@@ -4,18 +4,19 @@ import { throwErr, validateInputs } from '../utils/utils';
 
 
 export default Component.extend({
+    populateArr() {
+        this.get('ingredients').addObjects(this.pizza.ingredients);
+    },
     init() {
         this._super(...arguments);
         this.set('ingredients', A());
     },
+    didInsertElement() {
+        this.populateArr();
+    },
     ingredient: '',
     errMessage: '',
-    actions: {
-        populateArr() {
-            if (this.model.ingredients !== undefined) {
-                this.get('ingredients').addObjects(this.model.ingredients);
-            }
-        },
+    actions: {  
         removeIngredient(remIng) {
             this.get('ingredients').removeObject(remIng);
         },
