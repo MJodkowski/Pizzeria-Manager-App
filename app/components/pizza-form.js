@@ -4,20 +4,6 @@ import { throwErr, validateInputs } from '../utils/utils';
 
 
 export default Component.extend({
-    // didInsertElement() {
-    //     this.populateArr();
-    // },
-    // actions: {
-    //     removeIngredient(ing) {
-    //         this.removeIngredient(ing);
-    //     },
-    //     savePizza(pizza) {
-    //         this.onSave(pizza);
-    //     },
-    //     addIngredient(ingredient) {
-    //         this.addIngredient(ingredient);
-    //     }
-    // }
     init() {
         this._super(...arguments);
         this.set('ingredients', A());
