@@ -1,8 +1,44 @@
-<nav class="nav">
-    <h1 class="main-header">Pizzeria Manager</h1>
-    <div class="nav-buttons">
-        {{#link-to "pizzerias" class="button"}}Pizzerie{{/link-to}}
-        {{#link-to "pizzas" class="button"}}Pizze{{/link-to}}
+<nav>
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <h1 class="top-bar-title main-header">Pizzeria Manager</h1>
+        </div>
+        <div class="top-bar-right">
+            {{#zf-dropdown-menu}}
+            <li>
+                {{#link-to "pizzerias"}}Pizzerie{{/link-to}}
+                <ul class="vertical menu">
+                    <li>
+                        {{#link-to "pizzerias"}}Wyświetl{{/link-to}}
+                    </li>
+                    <li>
+                        {{#link-to "pizzerias.add"}}Dodaj{{/link-to}}
+                    </li>
+                </ul>
+            </li>
+            <li>
+                {{#link-to "pizzas"}}Pizze{{/link-to}}
+                <ul class="vertical menu">
+                    <li>
+                        {{#link-to "pizzas"}}Wyświetl{{/link-to}}
+                    </li>
+                    <li>
+                        {{#link-to "pizzas.add"}}Dodaj{{/link-to}}
+                    </li>
+                </ul>
+            </li>
+            {{/zf-dropdown-menu}}
+        </div>
     </div>
 </nav>
+
+
+
+{{!-- <nav class="nav">
+    <h1 class="main-header">Pizzeria Manager</h1>
+    <div class="button-group">
+        {{#link-to "pizzerias" class="button alert"}}Pizzerie{{/link-to}}
+        {{#link-to "pizzas" class="button"}}Pizze{{/link-to}}
+    </div>
+</nav> --}}
 {{outlet}}
