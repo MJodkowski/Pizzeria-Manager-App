@@ -1,5 +1,17 @@
-<h3 class="card-header">{{pizza.name}}</h3>
-<ul>
-    <li class="card-list-item">Cena: {{pizza.price}}</li>
-    <li class="card-list-item">Składniki: {{pizza.ingredients}}</li>
-</ul>
+<div class="card">
+    <div class="card-divider">
+        <h3 class="white-header">{{pizza.name}}</h3>
+    </div>
+    <div class="card-section">
+        <ul class="no-bullet">
+            <li class="card-list-item">Cena: {{pizza.price}}</li>
+            <li class="card-list-item">Składniki: {{pizza.ingredients}}</li>
+        </ul>
+        <div class="small button-group">
+            {{#link-to "pizzas.edit" pizza class="success button"}}
+            Edytuj
+            {{/link-to}}
+            <Delete-Button @record={{pizza}} />
+        </div>
+    </div>
+</div>

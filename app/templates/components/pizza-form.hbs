@@ -1,23 +1,24 @@
-<section class="section">
+<section class="form">
     <h2 class="section-header">{{header}}</h2>
     <form>
-        <div class="form-block">
+        <div>
             <label for="name">Nazwa:</label>
             {{input class="input" type="text" id="name" name="name" required="true" value=pizza.name}}
         </div>
-        <div class="form-block">
-            <label class="form-label" for="ingredients">Składniki:</label>
-            {{input class="input" type="text" id="ingredients" name="ingredients" value=ingredient}}
-            <ul>
+        <div>
+            <label for="ingredients">Składnik:</label>
+            {{input type="text" id="ingredients" name="ingredients" value=ingredient}}
+            <button class="button" {{action "addIngredient" preventDefault=true}}>Dodaj składnik</button>
+            <p>Składniki:</p>
+            <ul class="no-bullet">
                 {{#each ingredients as |ing|}}
-                <li>{{ing}}<button class="delete-button" {{action "removeIngredient" ing preventDefault=true}}>X</button></li>
+                <li class="ingredient-li">{{ing}}<button class="alert button" {{action "removeIngredient" ing preventDefault=true}}>Usuń</button></li>
                 {{/each}}
             </ul>
-            <button class="button" {{action "addIngredient" preventDefault=true}}>Dodaj składnik</button>
         </div>
-        <div class="form-block">
+        <div class="form-price">
             <label for="price">Cena:</label>
-            {{input class="input" type="number" id="price" name="price" value=pizza.price}}
+            {{input type="number" id="price" name="price" value=pizza.price}}
         </div>
         <input class="button" type="submit" value={{submit}} {{action "savePizza" pizza preventDefault=true}}>
     </form>
