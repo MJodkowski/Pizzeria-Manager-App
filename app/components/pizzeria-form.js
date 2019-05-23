@@ -35,16 +35,20 @@ export default Component.extend({
                 if (pizza.isChecked) {
                     pizzaArr.push({ name: pizza.name, ingredients: pizza.ingredients, price: pizza.price });
                 }
-            });  
+            });
             pizzeria.set('menu', pizzaArr);
             pizzeria.set('coords', await this.geocode.fetchCoordinates(pizzeria.get('address')));
             if (throwErr.call(this, validateInputs(pizzeria))) {
                 return;
             }
-            if (this.model.pizzerias.slice(0, -1).find((item) => 
-                item.name.toLowerCase() === pizzeria.name.toLowerCase())) {
-                    throwErr.call(this, "Zapisano już pizzerię o takiej nazwie");
-                    return;
+            if (this.model.pizzerias.reduce((hits, pizz) => {
+                if (pizz.name.toLowerCase() === pizzeria.name.toLowerCase()) {
+                    hits++;
+                }
+                return hits;
+            }, 0) > 1) {
+                throwErr.call(this, "Zapisano już pizzerię o takiej nazwie");
+                return;
             }
             await pizzeria.save();
             this.transition('pizzerias.index');

@@ -1,4 +1,4 @@
-<Pizzeria-Display class="full-display" @isExpanded={{'true'}} @pizzeria={{this.model}}></Pizzeria-Display>
+<Pizzeria-Display @isExpanded={{'true'}} @pizzeria={{this.model}}></Pizzeria-Display>
 
 <LeafletMap class="location-map" @lat={{this.model.coords.geometry.coordinates.[1]}} @lng={{this.model.coords.geometry.coordinates.[0]}} @zoom={{15}} as |layers|>
     <layers.tile @url="https://tiles.wmflabs.org/osm-no-labels/{z}/{x}/{y}.png"/>

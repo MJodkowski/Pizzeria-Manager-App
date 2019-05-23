@@ -1,24 +1,57 @@
-{{#if pizzeria.name}}
-<h3 class="card-header">{{pizzeria.name}}</h3>
-<ul>
-    <li class="card-list-item">Adres: {{pizzeria.address}}</li>
-    <li class="card-list-item">Otwarta od: {{pizzeria.hoursFrom}} do {{pizzeria.hoursTo}}</li>
-</ul>
+{{#unless this.isExpanded}}
+<div class="card" style="width: 300px;">
+    <div class="card-divider">
+        <h3 class="white-header">{{pizzeria.name}}</h3>
+    </div>
+    <div class="card-section">
+        <ul class="no-bullet">
+            <li class="card-list-item">Adres: {{pizzeria.address}}</li>
+            <li class="card-list-item">Otwarta od: {{pizzeria.hoursFrom}} do {{pizzeria.hoursTo}}</li>
+        </ul>
+        <div class="small button-group">
+            {{#link-to "pizzerias.show" pizzeria class="success button"}}
+            Wyświetl
+            {{/link-to}}
+            <Delete-Button @record={{pizzeria}} />
+        </div>
+    </div>
+</div>
+{{/unless}}
 {{#if this.isExpanded}}
-{{#if pizzeria.menu.[0].name}}
-<h4 class="menu-header">Menu</h4>
-<ul>
-    {{#each pizzeria.menu as |menuItem|}}
-    <div class="card-list-item">
-        <li>{{menuItem.name}}</li>
-        <ul>
-            <li>Składniki: {{menuItem.ingredients}}</li>
-            <li>Cena: {{menuItem.price}}</li>
+{{#link-to 'pizzerias' class="button primary"}}Wróć{{/link-to}}
+<div class="card wide-card">
+    <div class="card-divider">
+        <h3 class="white-header">{{pizzeria.name}}</h3>
+    </div>
+    <div class="card-section">
+        <ul class="no-bullet">
+            <li class="card-list-item">Adres: {{pizzeria.address}}</li>
+            <li class="card-list-item">Otwarta od: {{pizzeria.hoursFrom}} do {{pizzeria.hoursTo}}</li>
         </ul>
     </div>
-    {{/each}}
-</ul>
-{{/if}}
-{{#link-to 'pizzerias.edit' pizzeria.id class="button"}}Edit{{/link-to}}
-{{/if}}
+    {{#if pizzeria.menu.[0].name}}
+    <div class="card-divider">
+        <h4 class="white-header">Menu</h4>
+    </div>
+    <div class="card-section">
+        <ol class="no-bullet">
+            {{#each pizzeria.menu as |menuItem|}}
+            <div class="card-list-item">
+                <li>
+                    <h5>{{menuItem.name}}</h5>
+                </li>
+                <ul>
+                    <li>Składniki: {{menuItem.ingredients}}</li>
+                    <li>Cena: {{menuItem.price}}</li>
+                </ul>
+            </div>
+            {{/each}}
+        </ol>
+    </div>
+    {{/if}}
+    <div class="small button-group">
+        {{#link-to 'pizzerias.edit' pizzeria.id class="button primary"}}Edytuj{{/link-to}}
+        <Delete-Button @record={{pizzeria}} />
+    </div>
+</div>
 {{/if}}

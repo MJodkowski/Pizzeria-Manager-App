@@ -1,37 +1,45 @@
-<section class="section">
+<section class="form">
     <h2 class="section-header">{{header}}</h2>
     <form>
-        <div class="form-block">
+        <div>
             <label for="name">Nazwa:</label>
             {{input class="input" type="text" id="name" name="name" required="true" value=model.pizzeria.name}}
         </div>
         <fieldset>
-            <legend>Address:</legend>
-            <div class="form-block">
+            <legend>Adres:</legend>
+            <div>
                 <label for="city">Miasto:</label>
                 {{input id="city" name="city" required="true" value=model.pizzeria.city}}
             </div>
-            <div class="form-block">
-                <label for="street">Ulica:</label>
-                {{input id="street" name="street" required="true" value=model.pizzeria.street}}
-            </div>
-            <div class="form-block">
-                <label for="number">Numer:</label>
-                {{input id="number" name="number" type="number" required="true" value=model.pizzeria.number}}
+            <div class="form-container">
+                <div class="address-street">
+                    <label for="street">Ulica:</label>
+                    {{input id="street" name="street" required="true" value=model.pizzeria.street}}
+                </div>
+                <div class="address-number">
+                    <label for="number">Numer:</label>
+                    {{input id="number" name="number" type="number" required="true" value=model.pizzeria.number}}
+                </div>
             </div>
         </fieldset>
-        <div class="form-block">
-            <label for="hours-from">Otwarte od:</label>
-            {{input type="time" id="hours-from" name="hours-from" required="true" value=model.pizzeria.hoursFrom}}
-            <label for="hours-to">do:</label>
-            {{input type="time" id="hours-to" name="hours-to" required="true" value=model.pizzeria.hoursTo}}
+        <div class="form-container">
+            <div>
+                <label for="hours-from">Otwarte od:</label>
+                {{input type="time" class="form-hours" id="hours-from" name="hours-from" required="true" value=model.pizzeria.hoursFrom}}
+            </div>
+            <div>
+                <label for="hours-to">do:</label>
+                {{input type="time" class="form-hours" id="hours-to" name="hours-to" required="true" value=model.pizzeria.hoursTo}}
+            </div>
         </div>
-        <div class="form-block">
+        <div>
             <fieldset>
                 <legend>Menu:</legend>
                     {{#each checkedPizzas as |pizza|}}
-                        <label for={{pizza.name}}>{{pizza.name}}</label>
-                        {{input type="checkbox" name=pizza.name checked=pizza.isChecked}}
+                    <div>
+                        {{input class="inline-block" type="checkbox" name=pizza.name checked=pizza.isChecked}}
+                        <label class="inline-block" for={{pizza.name}}>{{pizza.name}}</label>
+                    </div>
                     {{/each}}
             </fieldset>
         </div>

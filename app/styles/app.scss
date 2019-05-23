@@ -1,0 +1,71 @@
+@import "settings";
+@import 'foundation-sites/foundation';
+@include foundation-everything;
+
+@import url(https://fonts.googleapis.com/css?family=Lato:300,300italic,400,700,700italic);
+
+body {
+    background-color: rgb(236, 235, 235);
+}
+.card {
+    width: 300px;
+}
+.location-map {
+    height: 300px;
+}
+.white-header {
+    color: mintcream;
+}
+.section-header {
+    margin-top: 10px;
+    text-align: center;
+    color: rgb(236, 113, 113);
+    font-size: 40px
+}
+.wide-card {
+    width: 80%;
+    margin: 10px auto;
+}
+.grid {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.inline-block {
+    display: inline-block;
+}
+.form {
+    margin: 0 auto;
+    width: 40%;    
+    .form-container {
+        display: flex;
+    }
+    .address-street {
+        width: 80%;
+    }
+    .address-number {
+        width: 20%;
+    }
+    .form-hours {
+        width: 100px;
+    }
+    .form-price {
+        width: 100px;
+    }
+    .ingredient-li {
+        background-color: rgb(223, 223, 223);
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 10px 0;
+        button {
+            margin: 0;
+        }
+    }
+}
+@media (max-width: 650px) {
+    .form {
+        width: 80%;
+    }
+}
